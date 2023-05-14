@@ -1,26 +1,11 @@
 <?php
 
-class GuestModel extends Model
+class GuestLoadModel extends Model
 {
-
-    public function getMessage()
-    {
-        $last_name = $_POST['last_name'];
-        $first_name = $_POST['first_name'];
-        $middle_name = $_POST['middle_name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $date = date('d.m.y');
-
-        $data = "$date;$last_name $first_name $middle_name;$email;$message\n";
-
-        return $data;
-
-    }
-
     public function getMessages($file)
     {
-        $lines = explode("\n", $file);
+        $contents = file_get_contents($file);
+        $lines = explode("\n", $contents);
         $result = array();
 
         foreach (array_reverse($lines) as $line) {
@@ -41,14 +26,4 @@ class GuestModel extends Model
         }
         return $result;
     }
-
-
-
-    public function saveMessage($message)
-    {
-        $file = fopen('messages.inc', 'a');
-        fwrite($file, $message);
-        fclose($file);
-    }
-
 }

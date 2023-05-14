@@ -48,9 +48,31 @@
             class="block lg:inline-block lg:mt-0 hover:text-slate-400 transition duration-300 mr-5">Тест</a>
           <a href="History"
             class="block lg:inline-block lg:mt-0 hover:text-slate-400 transition duration-300 mr-5">История</a>
-          <a href="Guest"
-            class="block lg:inline-block lg:mt-0 hover:text-slate-400 transition duration-300 mr-5">Гостевая книга</a>
-            
+
+          <div class="group inline-block relative mt-4 lg:mt-0 hover:text-slate-400 transition duration-300">
+            <a href="Guest"
+              class="group block lg:inline-block lg:mt-0 hover:text-slate-400 transition duration-300 mr-5">
+              Гостевая книга
+            </a>
+            <ul class="transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute z-50 bg-slate-900 border border-gray-950 text-gray-400">
+              <li><a href="GuestLoad" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">Загрузить</a></li>
+            </ul>
+          </div>
+          
+
+          <div class="group inline-block relative mt-4 lg:mt-0 hover:text-slate-400 transition duration-300">
+            <a href="#" 
+              class="group block lg:inline-block lg:mt-0 hover:text-slate-400 transition duration-300 mr-5">
+              Мой блог
+            </a>
+            <ul
+              class="transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute z-50 bg-slate-900 border border-gray-950 text-gray-400">
+              <li><a href="#" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">фыв</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">фыв</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">ыв</a></li>
+            </ul>
+          </div>
+
 
         </div>
       </div>

@@ -3,7 +3,6 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 class="text-3xl font-bold mb-8">Гостевая книга</h1>
 
-        <!-- Форма для ввода сообщения -->
         <form class="mb-8" action="#" method="POST">
             <div class="grid grid-cols-2 gap-4">
                 <div>
@@ -49,18 +48,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="px-4 py-2">Иванов Иван Иванович</td>
-                    <td class="px-4 py-2">ivanov@example.com</td>
-                    <td class="px-4 py-2">Отличный сайт! Спасибо за полезную информацию!</td>
-                    <td class="px-4 py-2">10.05.2023</td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2">Петров Петр Петрович</td>
-                    <td class="px-4 py-2">petrov@example.com</td>
-                    <td class="px-4 py-2">Хороший дизайн и удобная навигация. Рекомендую!</td>
-                    <td class="px-4 py-2">09.05.2023</td>
-                </tr>
+                <?php foreach ($model as $message) {
+                    ?>
+                    <tr>
+                        <td class="px-4 py-2">
+                            <?php echo $message['fio'] ?>
+                        </td>
+                        <td class="px-4 py-2">
+                            <?php echo $message['email'] ?>
+                        </td>
+                        <td class="px-4 py-2">
+                            <?php echo $message['message'] ?>
+                        </td>
+                        <td class="px-4 py-2">
+                            <?php echo $message['date'] ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+
             </tbody>
         </table>
 
@@ -87,4 +92,5 @@
             </ul>
         </div>
     </footer>
+
 </body>

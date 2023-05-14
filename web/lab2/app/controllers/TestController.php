@@ -20,6 +20,7 @@ class TestController extends Controller
             $errors = $this->model->validator->showErrors();
 			if (empty($errors)) {
 				$this->model->validator->checkAnswers($_POST);
+                $this->model->saveTable($_POST);
                 $result = $this->model->validator->get_results();
                 $to_render = ['result' => $result];
 			}

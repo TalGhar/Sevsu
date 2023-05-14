@@ -27,7 +27,7 @@ class BaseActiveRecord
         if (!isset(static::$pdo)) {
             $eror = false;
             try {
-                static::$pdo = new PDO("mysql:dbname=lab2; host=localhost; char-
+                static::$pdo = new PDO("mysql:host=localhost; dbname=lab2; char-
         set=utf8", "root", "2233");
             } catch (PDOException $ex) {
                 die("Ошибка подключения к БД: $ex");
@@ -51,10 +51,37 @@ class BaseActiveRecord
     }
     public static function findAll()
     {
+        static::setupConnection();
+        static::getFields();
 
+        $result = [];
+        $sql = "SELECT * FROM " . static::$tablename;
+        $stmt = static::$pdo->query($sql);
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($result, $row);
+        }
+
+        return $result;
     }
-    public function save()
+    public function save($data)
     {
+        static::setupConnection();
+
+        $values = implode("', '", $data);
+        $values = '\'' . $values . '\'';
+        $fields = implode("`, `", static::$dbfields);
+        $fields = '`' . $fields . '`';
+
+        $tablename1 = static::$tablename;
+        $sql = "INSERT INTO $tablename1 ($fields) VALUES ($values)";
+        $stmt = static::$pdo->query($sql);
+
+        if ($stmt) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            throw new Exception();
+        }
 
     }
     public function delete()

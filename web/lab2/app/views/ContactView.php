@@ -1,5 +1,5 @@
 <body class="bg-gray-200">
-    <form method="POST" id="myForm" action="/lab1/Contact/check"
+    <form method="POST" id="myForm" action="Contact/check"
         class="max-w-xl mx-auto p-6 bg-slate-700 rounded-lg shadow-md m-2">
         <div class="mb-4">
             <label for="ФИО" class="font-semibold text-slate-200 block mb-2">ФИО:</label>
