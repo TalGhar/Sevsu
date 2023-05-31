@@ -1,5 +1,5 @@
 <body class="bg-gray-200">
-    <form method="POST" action="Test/check" class="max-w-xs mx-auto">
+    <form method="POST" action="/lab2/Test/check" class="max-w-xs mx-auto">
         <div class="mb-4">
             <label class="block font-bold mb-2" for="ФИО">ФИО</label>
             <input class="w-full px-4 py-2 rounded-lg border border-gray-400" type="text" id="ФИО" name="ФИО"
@@ -73,9 +73,53 @@
             $result = $model['result'];
             echo "<div>У вас $result верных ответов</div>";
         }
-
         ?>
     </div>
+
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    ФИО</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Дата</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Вопрос 1</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Вопрос 2</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Вопрос 3</th>
+                <th scope="col"
+                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Правильные
+                    ответы</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            <?php if (isset($model['data']))
+                foreach ($model['data'] as $row) { ?>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <?php echo $row['fio']; ?>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <?php echo $row['date']; ?>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <?php echo $row['answer1']; ?>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <?php echo $row['answer2']; ?>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <?php echo $row['answer3']; ?>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-center">
+                            <?php echo $row['correct_answers']; ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+        </tbody>
+    </table>
 
     <footer class="bg-slate-900 rounded-lg shadow m-4">
         <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">

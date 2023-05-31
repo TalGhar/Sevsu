@@ -21,6 +21,12 @@ class FormValidation
         'Группа' => [
             'isNotEmpty'
         ],
+        'title' => [
+            'isNotEmpty'
+        ],
+        'message' => [
+            'isNotEmpty'
+        ]
     ];
 
     private array $errors = [

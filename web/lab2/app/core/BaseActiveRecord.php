@@ -96,4 +96,30 @@ class BaseActiveRecord
         }
     }
 
+    public static function getCount()
+    {
+        static::setupConnection();
+
+        $sql = "SELECT COUNT(*) FROM " . static::$tablename;
+        $stmt = static::$pdo->query($sql);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return current($result);
+
+    }
+
+    public static function findByPage($offset, $rowsPerPage)
+    {
+        static::setupConnection();
+
+        $result = [];
+        $sql = "SELECT * FROM " . static::$tablename . " ORDER BY date DESC LIMIT " . $offset . ", " . $rowsPerPage;
+        $stmt = static::$pdo->query($sql);
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($result, $row);
+        }
+
+        return $result;
+    }
+
 }

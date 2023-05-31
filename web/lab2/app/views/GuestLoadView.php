@@ -1,6 +1,6 @@
 <body class="bg-gray-200">
 
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 m-5" action="GuestLoad/create"method="POST" enctype="multipart/form-data">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 m-5" action="/lab2/GuestLoad/create"method="POST" enctype="multipart/form-data">
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="file-upload">
                 Выберите файл для загрузки

@@ -2,10 +2,9 @@
     <div class="h-screen">
         <div class="container mx-auto">
             <div class="flex text-center justify-center flex-col space-y-2">
-                <h1 class="text-4xl">Лабораторная работа №8</h1>
-                <h2 class="text-3xl">«Исследование архитектуры MVC приложения и возможностей обработки <br> данных
-                    HTML-форм
-                    на стороне сервера с использованием языка PHP»</h2>
+                <h1 class="text-4xl">Лабораторная работа №9</h1>
+                <h2 class="text-3xl">«Исследование возможностей хранения данных на стороне сервера. <br>
+                    Работа с файлами. Работа с реляционными СУБД»</h2>
                 <h3 class="text-2xl">Работу выполнил</h3>
                 <h4 class="text-2xl">Студент 3 курса группы ИС/Б-20-1-о</h4>
                 <h5 class="text-2xl">Галенин Артём Константинович</h5>

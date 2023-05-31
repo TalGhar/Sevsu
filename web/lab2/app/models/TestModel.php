@@ -18,7 +18,7 @@ class TestModel extends Model
 
         $data = [
             'fio' => $post_array['ФИО'],
-            'date' => date('d.m.Y'),
+            'date' => date('Y-m-d H:i:s'),
             'answer1' => $post_array['answer1'],
             'answer2' => $post_array['answer2'],
             'answer3' => $post_array['answer3'],
