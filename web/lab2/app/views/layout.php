@@ -67,9 +67,8 @@
             </a>
             <ul
               class="transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute z-50 bg-slate-900 border border-gray-950 text-gray-400">
-              <li><a href="/lab2/#" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">фыв</a></li>
-              <li><a href="/lab2/#" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">фыв</a></li>
-              <li><a href="/lab2/#" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">ыв</a></li>
+              <li><a href="/lab2/BlogEditor" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">Редактор блога</a></li>
+              <li><a href="/lab2/LoadBlog" class="block px-4 py-2 hover:bg-slate-300 hover:text-slate-950 transition duration-300">Загрузка сообщений</a></li>
             </ul>
           </div>
 

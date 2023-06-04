@@ -26,7 +26,8 @@ class FormValidation
         ],
         'message' => [
             'isNotEmpty'
-        ]
+        ],
+
     ];
 
     private array $errors = [
@@ -84,17 +85,18 @@ class FormValidation
 
     public function setRule($field_name, $validator_name)
     {
-        if (!$this->rules[$field_name]) { $this->rules[$field_name] = []; }
+        if (!$this->rules[$field_name]) {
+            $this->rules[$field_name] = [];
+        }
         array_push($this->rules[$field_name], $validator_name);
     }
 
     public function validate($post_array)
     {
-        echo $this->rules[''];
         foreach ($post_array as $field => $item) {
             if ($this->rules[$field]) {
                 foreach ($this->rules[$field] as $rule) {
-                    $this -> $rule($item, $field);
+                    $this->$rule($item, $field);
                 }
             }
         }

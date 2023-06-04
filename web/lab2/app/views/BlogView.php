@@ -8,7 +8,7 @@
             echo "<div class='bg-white rounded-lg shadow-md p-6 mb-8 m-4'>";
             echo "<div class='text-gray-500 text-sm mb-2'>" . $post['date'] . "</div>";
             echo "<h2 class='text-2xl font-bold mb-2'>" . $post['title'] . "</h2>";
-            echo "<img src='/lab2/public/assets/img/" . $post['image'] . "' alt='" . $post['title'] . "' class='mb-4 w-1/5'>";
+            echo "<img src='/lab2/public/assets/img/" . $post['image'] . "' alt='" . $post['image'] . "' class='mb-4 w-1/5'>";
             echo "<div class='text-lg leading-7'>" . $post['message'] . "</div>";
             echo "</div>";
         }

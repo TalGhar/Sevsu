@@ -1,13 +1,13 @@
 <body class="bg-gray-200">
-    <form method="POST" action="/lab2/Test/check" class="max-w-xs mx-auto">
+    <form method="POST" action="/lab2/Test/check" class="max-w-xl mx-auto p-6 bg-slate-700 rounded-lg shadow-md m-2">
         <div class="mb-4">
-            <label class="block font-bold mb-2" for="ФИО">ФИО</label>
-            <input class="w-full px-4 py-2 rounded-lg border border-gray-400" type="text" id="ФИО" name="ФИО"
-                placeholder="Введите ФИО">
+            <label class="font-semibold text-slate-200 block mb-2" for="ФИО">ФИО</label>
+            <input class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                type="text" id="ФИО" name="ФИО">
         </div>
 
         <div class="mb-4">
-            <label class="block font-bold mb-2" for="course">Курс</label>
+            <label class="font-semibold text-slate-200 block mb-2" for="course">Курс</label>
             <select class="w-full px-4 py-2 rounded-lg border border-gray-400" id="course" name="course">
                 <optgroup label="1 курс">
                     <option value="1">Группа 1</option>
@@ -33,25 +33,26 @@
         </div>
 
         <div class="mb-4">
-            <label class="block font-bold mb-2">Вопрос 1</label>
+            <label class="font-semibold text-slate-200 block mb-2">Вопрос 1</label>
             <div class="flex items-center">
                 <input class="mr-2" type="radio" id="answer1_1" name="answer1" value="1" checked>
-                <label class="mr-4" for="answer1_1">Ответ 1</label>
+                <label for="answer1_1" class="font-semibold text-slate-200 mr-4">Ответ 1</label>
                 <input class="mr-2" type="radio" id="answer1_2" name="answer1" value="2">
-                <label for="answer1_2">Ответ 2</label>
+                <label for="answer1_2" class="font-semibold text-slate-200">Ответ 2</label>
             </div>
         </div>
 
         <div class="mb-4">
-            <label class="block font-bold mb-2" for="answer2">Вопрос 2</label>
-            <input class="w-full px-4 py-2 rounded-lg border border-gray-400" type="text" id="answer2" name="answer2"
-                placeholder="Введите ответ на вопрос 2">
+            <label class="font-semibold text-slate-200 block mb-2" for="answer2">Вопрос 2</label>
+            <input class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                type="text" id="answer2" name="answer2">
         </div>
 
         <div class="mb-4">
-            <label class="block font-bold mb-2" for="answer3">Вопрос 3</label>
-            <textarea class="w-full px-4 py-2 rounded-lg border border-gray-400" id="answer3" name="answer3"
-                placeholder="Введите ответ на вопрос 3"></textarea>
+            <label class="font-semibold text-slate-200 block mb-2" for="answer3">Вопрос 3</label>
+            <textarea
+                class="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                id="answer3" name="answer3"></textarea>
         </div>
 
         <div class="flex justify-between">
