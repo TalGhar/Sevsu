@@ -3,7 +3,7 @@ function checkUsernameAvailability() {
     var submit = document.getElementById("submit");
     var httpRequest = new XMLHttpRequest();
 
-    httpRequest.onreadystatechange = function () {
+    httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 var response = JSON.parse(httpRequest.responseText);
@@ -22,7 +22,6 @@ function checkUsernameAvailability() {
             }
         }
     };
-    console.log(httpRequest)
     httpRequest.open("GET", "/lab4/Auth/checkLogin/?username=" + username, true);
     httpRequest.send();
 }

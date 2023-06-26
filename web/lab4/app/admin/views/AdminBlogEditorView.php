@@ -1,3 +1,27 @@
+<style>
+    .modal {
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .modal.hidden {
+        display: none
+    }
+
+    .modal .container {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+</style>
+
 <body class="bg-gray-200">
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -51,12 +75,30 @@
                 // Вывод данных на страницу
                 if (isset($model['posts']) && count($model['posts']) > 0) {
                     foreach ($model['posts'] as $post) {
-                        echo "<div class='bg-white rounded-lg shadow-md p-6 mb-8 m-4'>";
-                        echo "<div class='text-gray-500 text-sm mb-2'>" . $post['date'] . "</div>";
-                        echo "<h2 class='text-2xl font-bold mb-2'>" . $post['title'] . "</h2>";
-                        echo "<img src='/lab4/public/assets/img/" . $post['image'] . "' alt='" . $post['title'] . "' class='mb-4 w-1/5'>";
-                        echo "<div class='text-lg leading-7'>" . $post['message'] . "</div>";
-                        echo "</div>";
+
+                        ?>
+                        <div class='bg-white rounded-lg shadow-md p-6 mb-8 m-4'>
+                            <div class='text-gray-500 text-sm mb-2'>
+                                <?= $post['date'] ?>
+                            </div>
+                            <h2 class='text-2xl font-bold mb-2'>
+                                <?= $post['title'] ?>
+                            </h2>
+                            <img src="/lab4/public/assets/img/<?= $post['image'] ?>" alt=<?= $post['image'] ?>
+                                class='mb-4 w-1/5'>
+                            <p class='text-lg leading-7 mb-5'>
+
+                                <?= $post['message'] ?>
+
+                            </p>
+                            <button class="btn edit-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                type="button" data-id='<?= $post['id'] ?>' data-title='<?= $post['title'] ?>'
+                                data-message='<?= $post['message'] ?>'>Редактировать</button>
+                        </div>
+
+
+
+                        <?php
                     }
                 } else {
                     echo "<p>Нет сообщений для отображения.</p>";
@@ -64,11 +106,30 @@
 
 
                 ?>
-                </table>
             </div>
         </div>
 
 
+    </div>
+
+    <div class="modal hidden">
+        <div class="container rounded-lg shadow-lg">
+            <h4 class="text-center mb-4">Редактирование</h4>
+            <form>
+                <div class="form-group">
+                    <input id="editTitle" type="text"
+                        class="mb-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Тема сообщения" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <textarea id="editMessage"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        rows="4" placeholder="Введите сообщение"></textarea>
+                </div>
+                <button id="saveBtn" class="btn btn-primary w-100" type="button">Сохранить</button>
+            </form>
+            <div id="modalErrorBlock" class="mt-3"></div>
+        </div>
     </div>
 
     <footer class="bg-slate-900 rounded-lg shadow m-4">
@@ -94,3 +155,5 @@
     </footer>
 
 </body>
+
+<script src="/lab4/public/assets/js/blogEditor.js"></script>

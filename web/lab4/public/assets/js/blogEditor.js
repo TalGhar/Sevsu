@@ -34,32 +34,36 @@ const saveChanges = () => {
     "  <message>" + modalMessage.value + "</message>" +
     "</profile>";
 
-    let xmlhttp = new XMLHttpRequest();
+    console.log(xmlString);
+    let httpRequest = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "http://web/admin/editblog/edit", true);
-    xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=UTF-8");
-    xmlhttp.send(xmlString);
+    httpRequest.open("POST", "BlogEditor/edit", true);
+    httpRequest.setRequestHeader("Content-Type", "text/xml; charset=UTF-8");
+    httpRequest.send(xmlString);
 
-    xmlhttp.onreadystatechange = () => {
-        if (xmlhttp.readyState == 4) {
-            if (xmlhttp.status == 200) {
-                const data = JSON.parse(xmlhttp.response);
+    httpRequest.onreadystatechange = () => {
+        if (httpRequest.readyState == XMLHttpRequest.DONE) {
+            if (httpRequest.status == 200) {
+                var response = JSON.parse(httpRequest.response);
                 modalErrorBlock.innerHTML = "";
-                if (data.length) {
-                    data.forEach(err => {
+                if (response.length) {
+
+                    response.forEach(err => {
                         const errorDiv = document.createElement("p");
                         errorDiv.className = "result-block__item error";
                         errorDiv.innerHTML = err;
                         modalErrorBlock.appendChild(errorDiv);
                     });
                 } else {
+
                     const currentBtn = document.querySelectorAll(
                         `.btn.edit-btn[data-id="${currentPost.id}"]`
                     )[0];
                     const title = currentBtn.parentNode.getElementsByTagName(
-                        "h5"
+                        "h2"
                     )[0];
                     const text = currentBtn.parentNode.getElementsByTagName("p")[0];
+                    console.log(text);
                     title.innerHTML = modalTitle.value;
                     text.innerHTML = modalMessage.value;
                     currentBtn.setAttribute("data-title", modalTitle.value);
