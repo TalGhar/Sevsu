@@ -34,5 +34,4 @@ COPY ./ ./
 EXPOSE 9000
 EXPOSE 5173
 RUN chmod +x /entrypoint.sh
-#ENTRYPOINT ["debian.exe", "./entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]

@@ -11,8 +11,9 @@ services:
         networks:
             - app-network
     db:
-        image: mysql:latest
-        container_name: mysql
+        image: mariadb:latest
+        restart: always
+        container_name: mdb
         ports:
             - "23306:3306"
         environment:
@@ -21,12 +22,12 @@ services:
             MYSQL_USER: ${DB_USERNAME}
             MYSQL_PASSWORD: ${DB_PASSWORD}
         volumes:
-            - ./database/data:/var/lib/mysql
+            - ./database/data:/docker-entrypoint-initdb.d
         networks:
             - app-network
     nginx:
         image: nginx:alpine
-        container_name: nginx
+        container_name: netw
         ports:
             - "8030:80"
         volumes:
