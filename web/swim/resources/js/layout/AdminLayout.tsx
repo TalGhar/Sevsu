@@ -1,13 +1,18 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useState } from 'react'
+import AdminSideBar from './AdminSideBar'
 
 type Props = {}
 
 export default function AdminLayout({ }: Props) {
+
+    const [open, setOpen] = useState(true);
+
     return (
         <>
-            <div>AdminLayout</div>
-            <Outlet />
+            <AdminSideBar
+                open={open}
+                setOpen={() => setOpen((cur) => !cur)}
+            />
         </>
     )
 }

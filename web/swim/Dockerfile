@@ -26,6 +26,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY ./entrypoint.sh /entrypoint.sh
 
+
+
 # Set working directory
 WORKDIR /var/www
 
@@ -35,3 +37,4 @@ EXPOSE 9000
 EXPOSE 5173
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
+

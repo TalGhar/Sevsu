@@ -19,14 +19,17 @@ import NewsDashboard from "../pages/Dashboard/NewsDashboard";
 import RequestsDashboard from "../pages/Dashboard/RequestsDashboard";
 import ReviewsDashboard from "../pages/Dashboard/ReviewsDashboard";
 import ServicesDashboard from "../pages/Dashboard/ServicesDashboard";
-import GuestLayout from "../layout/GuestLayout";
-import AdminLayout from "../layout/AdminLayout";
 import Login from "../pages/Login";
+import ProtectedRoutes from "./ProtectedRoutes";
+import AdminRoutes from "./AdminRoutes";
+import Register from "../pages/Register";
+import AdminRegister from "../pages/Dashboard/AdminRegister";
+import AdminLogin from "../pages/Dashboard/AdminLogin";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <GuestLayout />,
+        element: <ProtectedRoutes />,
         children: [
             {
                 path: '/',
@@ -84,11 +87,15 @@ const router = createBrowserRouter([
                 path: '/login',
                 element: <Login />
             },
+            {
+                path: '/register',
+                element: <Register />
+            },
         ]
     },
     {
         path: '/admin',
-        element: <AdminLayout />,
+        element: <AdminRoutes />,
         children: [
             {
                 path: '/admin/awards',
@@ -114,6 +121,14 @@ const router = createBrowserRouter([
                 path: '/admin/services',
                 element: <ServicesDashboard />
             },
+            {
+                path: '/admin/login',
+                element: <AdminLogin />
+            },
+            {
+                path: '/admin/register',
+                element: <AdminRegister />
+            }
         ]
     },
     {

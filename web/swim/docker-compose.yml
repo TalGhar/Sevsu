@@ -10,6 +10,7 @@ services:
             - .:/var/www
         networks:
             - app-network
+        
     db:
         image: mariadb:latest
         restart: always
