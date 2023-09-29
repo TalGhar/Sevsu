@@ -11,34 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('owners', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 35);
-            $table->string('surname', 35);
-            $table->string('patron', 35);
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->timestamps();
-        });
-
-        Schema::create('boats', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 35);
-            $table->string('description');
-            $table->integer('owner_id')->unsigned();
-            $table->foreign('owner_id')->references('id')->on('owners');
-            $table->decimal('price', 10, 2);
-            $table->string('status', 20);
-            $table->timestamps();
-        });
-
-        Schema::create('boats_images', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('boat_id')->unsigned();
-            $table->foreign('boat_id')->references('id')->on('boats');
-            $table->string('filename');
-            $table->timestamps();
-        });
 
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
@@ -47,6 +19,26 @@ return new class extends Migration
             $table->string('patron', 35);
             $table->string('email')->unique();
             $table->string('password');
+            $table->timestamps();
+        });
+        Schema::create('boats', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 35);
+            $table->string('description');
+            $table->integer('owner_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('clients');
+            $table->integer('rented_id')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->string('status', 20);
+            $table->date('rented_from')->nullable();
+            $table->date('rented_to')->nullable();
+            $table->timestamps();
+        });
+        Schema::create('boats_images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('boat_id')->unsigned();
+            $table->foreign('boat_id')->references('id')->on('boats');
+            $table->string('filename');
             $table->timestamps();
         });
 
@@ -67,6 +59,26 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
+
+        Schema::create('awards', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('award_title');
+            $table->string('award_text');
+            $table->string('award_image');
+        });
+
+        Schema::create('history', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('history_text');
+        });
+
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('review_text');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients');
+        });
+
     }
 
     /**
@@ -74,9 +86,25 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('owners');
+        Schema::table('boats', function (Blueprint $table) {
+            $table->dropForeign('owner_id');
+            $table->dropForeign('rented_id');
+            $table->dropForeign('client_id');
+        });
+        Schema::table('boats_images', function (Blueprint $table) {
+            $table->dropForeign('boat_id');
+        });
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign('client_id');
+        });
+        Schema::table('orders_boats', function (Blueprint $table) {
+            $table->dropForeign('boat_id');
+            $table->dropForeign('order_id');
+        });
+        Schema::dropIfExists('awards');
         Schema::dropIfExists('boats');
         Schema::dropIfExists('boats_images');
+        Schema::dropIfExists('owners');
         Schema::dropIfExists('clients');
         Schema::dropIfExists('orders');
         Schema::dropIfExists('orders_boats');

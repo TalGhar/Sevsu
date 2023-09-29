@@ -5,16 +5,17 @@ import AdminLayout from "../layout/AdminLayout";
 
 function AdminRoutes() {
 
-    const isAdminLogged = 0;
+    const isAdminLogged = localStorage.getItem('isAdmin');
 
     return isAdminLogged ? (
         <>
-            <Navigate to={'/admin'} />
+            <Navigate to={'/admin/awards'} />
             <AdminLayout />
+            
         </>
     ) : (
         <>
-            <Navigate to={'/admin/register'} />
+            <Navigate to={'/admin/login'} />
             <Outlet />
         </>
     )

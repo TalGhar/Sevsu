@@ -4,14 +4,10 @@ import { Outlet } from "react-router-dom";
 import GuestLayout from "../layout/GuestLayout";
 
 function ProtectedRoutes() {
-    const [isLogged, setIsLogged] = useState(false);
+    const isLogged = localStorage.getItem('authToken');
 
-    useEffect(() => {
-        localStorage.getItem('authToken') ? setIsLogged(true) : setIsLogged(false);
-    }, []);
     return isLogged ? (
         <>
-            <Navigate to={'/home'} />
             <GuestLayout />
         </>
     ) : (

@@ -21,9 +21,9 @@ export default function Login({ }: Props) {
         await axios.post('/api/login', data)
 
             .then(response => {
-
                 window.location.href = '/home';
                 response.data ? window.localStorage.setItem('authToken', 'true') : console.log('error');
+                response.data ? window.localStorage.setItem('userId', JSON.stringify(response.data.id)) : console.log('error');
             })
     }
 

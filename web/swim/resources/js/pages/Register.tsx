@@ -25,8 +25,9 @@ export default function Register({ }: Props) {
 
         await axios.post('/api/register', data)
 
-            .then(() => {
+            .then(response => {
                 window.localStorage.setItem('authToken', 'true');
+                window.localStorage.setItem('userId', JSON.stringify(response.data.id));
                 window.dispatchEvent(new Event('storage'));
                 window.location.href = '/home';
             })

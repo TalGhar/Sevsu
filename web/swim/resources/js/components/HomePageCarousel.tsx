@@ -39,7 +39,7 @@ export default function HomePageCarousel({ }: Props) {
             </div>
 
             <div className='flex h-full text-white shadow-slate-800 text-center text-3xl shadow-lg p-12 '>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad error, similique possimus sed cumque debitis est quibusdam, ratione explicabo sequi libero animi et nihil dolores quod sint? Adipisci, vero cumque.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eligendi molestias laudantium. Quis minima praesentium commodi vitae, assumenda accusantium harum culpa excepturi ad voluptate similique a, minus itaque quam quos?
             </div>
 
         </>

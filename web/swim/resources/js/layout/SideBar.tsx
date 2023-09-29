@@ -13,6 +13,7 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
 
     const logOut = () => {
         localStorage.removeItem('authToken');
+        localStorage.removeItem('userId');
         window.location.href = '/register';
 
     }
@@ -20,7 +21,7 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
     return (
         <>
             <div className="flex bg-gradient-to-b from-slate-200 from-50% to-emerald-200">
-                <div className={`sticky top-0 h-screen p-3  shadow-lg rounded-sm max-[1024px]:hidden overflow-hidden transition-all ${open ? "w-1/6" : "w-10"}`}>
+                <div className={`sticky top-0 h-screen p-3 shadow-lg rounded-sm overflow-hidden transition-all ${open ? "w-1/6" : "w-10"}`}>
 
                     <div className="space-y-3">
 
@@ -31,7 +32,7 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
                             </div>
 
                             <button onClick={() => { setOpen(!open); }}>
-                                {open ? <ChevronLeftIcon className="w-4 h-4" /> : <ChevronRightIcon className="w-4 h-4" />}
+                                {open ? <ChevronLeftIcon className="w-6 h-6" /> : <ChevronRightIcon className="w-6 h-6" />}
                             </button>
 
                         </div>
@@ -50,10 +51,10 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
 
                                     <div className={`transition-all overflow-hidden duration-500 ease-in-out ${dropDownOpen ? "" : "hidden"} `}>
                                         <div className="flex flex-col m-2">
-                                            <Link to="/history" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">История</Link>
-                                            <Link to="/services" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Услуги</Link>
-                                            <Link to="/awards" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Награды</Link>
-                                            <Link to="/reviews" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Отзывы</Link>
+                                            <Link to="#history" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">История</Link>
+                                            <Link to="#services" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Услуги</Link>
+                                            <Link to="#awards" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Награды</Link>
+                                            <Link to="#reviews" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Отзывы</Link>
                                         </div>
                                     </div>
 
@@ -61,8 +62,11 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
 
                                 <Link to="/types" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Виды катеров/яхт</Link>
                                 <Link to="/sales" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Продажа катеров/яхт</Link>
+                                <Link to="/rent" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Аренда катеров/яхт</Link>
                                 <Link to="/location" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Схема проезда</Link>
                                 <Link to="/sitemap" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Карта сайта</Link>
+                                <Link to="/place" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Выставить свой транспорт</Link>
+
                                 <button onClick={logOut}>Logout</button>
 
                             </nav>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -19,20 +18,22 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        Client::create([
+        $client = Client::create([
             'name' => $request->name,
             'surname' => $request->surname,
             'patron' => $request->patron,
             'email' => $request->email,
             'password' => $request->password
         ]);
+
+        return json_encode($client);
     }
 
     public function login(Request $request)
     {
         $client = Client::where('email', $request->email)->first();
         if ($client && $request->password == $client->password) {
-            return 1;
+            return json_encode($client);
         } else return null;
     }
 

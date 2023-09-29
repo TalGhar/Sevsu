@@ -23,8 +23,8 @@ import Login from "../pages/Login";
 import ProtectedRoutes from "./ProtectedRoutes";
 import AdminRoutes from "./AdminRoutes";
 import Register from "../pages/Register";
-import AdminRegister from "../pages/Dashboard/AdminRegister";
 import AdminLogin from "../pages/Dashboard/AdminLogin";
+import Place from "../pages/Place";
 
 const router = createBrowserRouter([
     {
@@ -84,17 +84,22 @@ const router = createBrowserRouter([
                 element: <SiteMap />
             },
             {
-                path: '/login',
-                element: <Login />
+                path: '/place',
+                element: <Place />
             },
-            {
-                path: '/register',
-                element: <Register />
-            },
+
         ]
     },
     {
-        path: '/admin',
+        path: '/login',
+        element: <Login />
+    },
+    {
+        path: '/register',
+        element: <Register />
+    },
+    {
+        path: '/admin/',
         element: <AdminRoutes />,
         children: [
             {
@@ -125,12 +130,9 @@ const router = createBrowserRouter([
                 path: '/admin/login',
                 element: <AdminLogin />
             },
-            {
-                path: '/admin/register',
-                element: <AdminRegister />
-            }
         ]
     },
+
     {
         path: '/*',
         element: <NotFound />

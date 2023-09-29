@@ -14,6 +14,7 @@ class BoatImage extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'boat_id',
         'filename'
     ];
 

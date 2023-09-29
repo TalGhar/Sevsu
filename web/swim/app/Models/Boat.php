@@ -16,13 +16,17 @@ class Boat extends Model
     protected $fillable = [
         'name',
         'description',
+        'owner_id',
+        'rented_id',
         'price',
+        'rented_from',
+        'rented_to',
         'status'
     ];
 
     public function owner()
     {
-        return $this->belongsTo('App\Models\Owner');
+        return $this->belongsTo('App\Models\Client');
     }
 
     public function orders()

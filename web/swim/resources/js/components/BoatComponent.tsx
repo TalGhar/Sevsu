@@ -23,7 +23,7 @@ export default function BoatComponent({ }: Props) {
 
     return (
         <>
-            <Card className='flex w-96 m-7'>
+            <Card className='w-1/3 h-1/3 p-6'>
                 <CardHeader className='shadow-md p-12 m-2'>
                     <div className="relative">
                         <img src={images[currentImage]} alt={`Image ${currentImage + 1}`} />
