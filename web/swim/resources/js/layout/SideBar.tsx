@@ -51,23 +51,18 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
 
                                     <div className={`transition-all overflow-hidden duration-500 ease-in-out ${dropDownOpen ? "" : "hidden"} `}>
                                         <div className="flex flex-col m-2">
-                                            <Link to="#history" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">История</Link>
-                                            <Link to="#services" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Услуги</Link>
-                                            <Link to="#awards" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Награды</Link>
-                                            <Link to="#reviews" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Отзывы</Link>
+                                            <Link to="/about/#history" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">История</Link>
+                                            <Link to="/about/#services" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Услуги</Link>
+                                            <Link to="/about/#awards" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Награды</Link>
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <Link to="/types" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Виды катеров/яхт</Link>
                                 <Link to="/sales" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Продажа катеров/яхт</Link>
-                                <Link to="/rent" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Аренда катеров/яхт</Link>
-                                <Link to="/location" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Схема проезда</Link>
-                                <Link to="/sitemap" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Карта сайта</Link>
                                 <Link to="/place" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Выставить свой транспорт</Link>
 
-                                <button onClick={logOut}>Logout</button>
+                                <button className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md" onClick={logOut}>Выйти из аккаунта</button>
 
                             </nav>
 

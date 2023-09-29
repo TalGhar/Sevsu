@@ -16,7 +16,9 @@ class Order extends Model
     protected $fillable = [
         'type',
         'status',
-        'price'
+        'price',
+        'client_id',
+        'boat_id'
     ];
 
     public function client()
@@ -26,6 +28,6 @@ class Order extends Model
 
     public function boats()
     {
-        return $this->belongsToMany('App\Models\Boat');
+        return $this->hasOne('App\Models\Boat');
     }
 }

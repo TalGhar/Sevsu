@@ -13,8 +13,8 @@ class Awards extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'awards_title',
-        'awards_text',
-        'awards_image'
+        'award_title',
+        'award_text',
+        'award_image'
     ];
 }

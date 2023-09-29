@@ -12,13 +12,15 @@ class AwardsController extends Controller
         $validated = $request->validate([
             'award_title' => 'required',
             'award_text' => 'required',
-            'award_image' => 'required|image|mimes:jpeg,jpg,png'
-
+            'award_image' => 'image|mimes:jpeg,jpg,png'
         ]);
-
-        return $request;
-
-        // Awards::create($validated);
+        $image = $request->file('award_image');
+        $imageName = 'Award' . time() . rand(1, 1000) . '.' . $image->extension();
+        $image->move(public_path('award_images'), $imageName);
+        $validated['award_image'] = $imageName;
+        if (Awards::create($validated))
+            return response()->json(['success' => true]);
+        return response()->json(['success' => false, 'errors' => ['asd' => 'dsa']]);
     }
 
     public function receive()
@@ -33,15 +35,19 @@ class AwardsController extends Controller
         $award->award_title = $request->title;
         $award->award_text = $request->text;
         $image = $request->file('image');
-        $imageName = 'Award'.time().rand(1,1000).'.'.$image->extension();
-        $image->move(public_path('award_images'), $imageName);
-        $award->award_image = $imageName;
+        if ($image) {
+            $imageName = 'Award' . time() . rand(1, 1000) . '.' . $image->extension();
+            $image->move(public_path('award_images'), $imageName);
+            $award->award_image = $imageName;
+        }
+
         $award->save();
-        return ;
+        return response()->json(['success' => true]);
     }
 
     public function delete(Request $request)
     {
-        return $request;
+        $award = Awards::find($request->id);
+        $award->delete();
     }
 }

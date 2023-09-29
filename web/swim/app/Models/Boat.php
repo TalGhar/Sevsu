@@ -31,11 +31,11 @@ class Boat extends Model
 
     public function orders()
     {
-        return $this->belongsToMany('App\Models\Order');
+        return $this->belongsTo('App\Models\Order');
     }
 
     public function images()
     {
-        return $this->hasMany('App\Models\BoatImage');
+        return $this->hasMany(BoatImage::class);
     }
 }

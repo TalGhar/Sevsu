@@ -20,7 +20,6 @@ export default function Place({ }: Props) {
         files.forEach((file) => {
             formData.append('files[]', file);
         })
-        console.log(files);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data',
@@ -42,7 +41,7 @@ export default function Place({ }: Props) {
                 <h1 className='flex mx-auto text-center align-center text-3xl mt-5'>
                     Заполните данные о морском транспорте
                 </h1>
-                <form onSubmit={handleSubmit} className="w-full h-full max-w-lg mx-auto bg-white p-6 rounded-lg mt-12 shadow-md">
+                <form onSubmit={handleSubmit} className="w-full h-full max-w-lg mx-auto bg-gradient-to-br from-orange-200 to-emerald-200 p-6 rounded-lg mt-12 shadow-md">
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
                             Название
@@ -87,7 +86,7 @@ export default function Place({ }: Props) {
                             id="files"
                             multiple
                             onChange={(e) => setFiles(Array.from(e.target.files || []))}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full p-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
                     <button
@@ -98,9 +97,7 @@ export default function Place({ }: Props) {
                     </button>
                 </form>
             </div>
-
-
+            
         </>
-
     )
 }

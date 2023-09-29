@@ -17,7 +17,6 @@ export default function HomePageCarousel({ }: Props) {
 
     return (
         <>
-
             <div className='flex opacity-40'>
                 <div
                     style={{ backgroundImage: 'url(/storage/images/yacht1.jpg)' }}
@@ -41,8 +40,6 @@ export default function HomePageCarousel({ }: Props) {
             <div className='flex h-full text-white shadow-slate-800 text-center text-3xl shadow-lg p-12 '>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eligendi molestias laudantium. Quis minima praesentium commodi vitae, assumenda accusantium harum culpa excepturi ad voluptate similique a, minus itaque quam quos?
             </div>
-
         </>
-
     )
 }

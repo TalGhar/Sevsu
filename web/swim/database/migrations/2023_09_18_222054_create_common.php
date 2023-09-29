@@ -24,7 +24,7 @@ return new class extends Migration
         Schema::create('boats', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 35);
-            $table->string('description');
+            $table->text('description');
             $table->integer('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('clients');
             $table->integer('rented_id')->nullable();
@@ -49,14 +49,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');
-            $table->timestamps();
-        });
-
-        Schema::create('orders_boats', function (Blueprint $table) {
             $table->integer('boat_id')->unsigned();
-            $table->integer('order_id')->unsigned();
             $table->foreign('boat_id')->references('id')->on('boats');
-            $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
 
@@ -67,16 +61,17 @@ return new class extends Migration
             $table->string('award_image');
         });
 
-        Schema::create('history', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('history_text');
+            $table->string('news_title');
+            $table->string('news_text');
+            $table->string('news_image');
+            $table->timestamps();
         });
 
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('history', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('review_text');
-            $table->integer('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->text('history_text');
         });
 
     }
@@ -97,16 +92,12 @@ return new class extends Migration
         Schema::table('orders', function (Blueprint $table) {
             $table->dropForeign('client_id');
         });
-        Schema::table('orders_boats', function (Blueprint $table) {
-            $table->dropForeign('boat_id');
-            $table->dropForeign('order_id');
-        });
+
         Schema::dropIfExists('awards');
         Schema::dropIfExists('boats');
         Schema::dropIfExists('boats_images');
         Schema::dropIfExists('owners');
         Schema::dropIfExists('clients');
         Schema::dropIfExists('orders');
-        Schema::dropIfExists('orders_boats');
     }
 };

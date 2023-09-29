@@ -23,10 +23,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', 'App\Http\Controllers\AuthController@register');
 Route::post('/login', 'App\Http\Controllers\AuthController@login');
 Route::post('/place', 'App\Http\Controllers\PlaceController@store');
-Route::post('/store', 'App\Http\Controllers\AwardsController@store');
-Route::get('/receive', 'App\Http\Controllers\AwardsController@receive');
+
+Route::get('/awards-receive', 'App\Http\Controllers\AwardsController@receive');
+Route::post('/awards-store', 'App\Http\Controllers\AwardsController@store');
 Route::post('/awards-edit', 'App\Http\Controllers\AwardsController@edit');
 Route::post('/awards-delete', 'App\Http\Controllers\AwardsController@delete');
+
+Route::get('/news-receive', 'App\Http\Controllers\NewsController@receive');
+Route::post('/news-store', 'App\Http\Controllers\NewsController@store');
+Route::post('/news-edit', 'App\Http\Controllers\NewsController@edit');
+Route::post('/news-delete', 'App\Http\Controllers\NewsController@delete');
+Route::get('/news-latest', 'App\Http\Controllers\NewsController@latest');
+
+Route::get('/history-receive', 'App\Http\Controllers\HistoryController@receive');
+Route::post('/history-store', 'App\Http\Controllers\HistoryController@store');
+Route::post('/history-edit', 'App\Http\Controllers\HistoryController@edit');
+Route::post('/history-delete', 'App\Http\Controllers\HistoryController@delete');
+
+Route::get('/boats-receive', 'App\Http\Controllers\BoatsController@receive');
+Route::post('/boats-sell', 'App\Http\Controllers\BoatsController@sell');
+Route::post('/boats-rent', 'App\Http\Controllers\BoatsController@rent');
+
+
+
+
+
+
 
 
 
