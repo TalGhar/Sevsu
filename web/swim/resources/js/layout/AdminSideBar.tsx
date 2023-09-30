@@ -11,33 +11,35 @@ export default function AdminSideBar({ open, setOpen }: Props) {
 
     return (
         <>
-            <div className="flex">
-                <div className={`flex flex-col min-h-screen p-3 bg-white shadow max-[1024px]:hidden overflow-hidden transition-all ${open ? "w-64" : "w-10"}`}>
+            <div className="flex bg-gradient-to-b from-slate-200 from-50% to-emerald-200">
+                <div className={`sticky top-0 h-screen p-3 shadow-lg rounded-sm overflow-hidden transition-all ${open ? "w-1/6" : "w-10"}`}>
 
                     <div className="space-y-3">
 
                         <div className={`flex flex-row justify-between`}>
 
                             <div className={`flex items-center overflow-hidden transition-all ${open ? "w-full" : "w-0"}`}>
-                                <h2 className={`font-bald text-xl`}>Dashboard</h2>
+                                <h2 className={`font-bald text-3xl`}>Плыви!</h2>
                             </div>
 
                             <button onClick={() => { setOpen(!open); }}>
-                                {open ? <ChevronLeftIcon className="w-4 h-4" /> : <ChevronRightIcon className="w-4 h-4" />}
+                                {open ? <ChevronLeftIcon className="w-6 h-6" /> : <ChevronRightIcon className="w-6 h-6" />}
                             </button>
 
                         </div>
 
-                        <div className={`flex-col transition-all overflow-hidden ${open ? "w-full" : "w-0"}`}>
+                        <div className={`flex-col transition-all overflow-hidden ${open ? "w-full" : "w-0 hidden"}`}>
 
                             <nav className="pt-2 pb-4 space-y-1 text-sm">
-                                <Link to="/admin/awards" className="flex items-center p-2 space-x-3 rounded-md">Awards</Link>
-                                <Link to="/admin/history" className="flex items-center p-2 space-x-3 rounded-md">History</Link>
-                                <Link to="/admin/news" className="flex items-center p-2 space-x-3 rounded-md">News</Link>
+                                <Link to="/admin/awards" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Награды</Link>
+                                <Link to="/admin/history" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">История</Link>
+                                <Link to="/admin/news" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Новости</Link>
                             </nav>
 
                         </div>
+
                     </div>
+
                 </div>
 
                 <div className="w-full h-full">

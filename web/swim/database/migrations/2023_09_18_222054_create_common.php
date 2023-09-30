@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 35);
@@ -39,18 +38,6 @@ return new class extends Migration
             $table->integer('boat_id')->unsigned();
             $table->foreign('boat_id')->references('id')->on('boats');
             $table->string('filename');
-            $table->timestamps();
-        });
-
-        Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('type', 20);
-            $table->string('status', 20);
-            $table->decimal('price', 10, 2);
-            $table->integer('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients');
-            $table->integer('boat_id')->unsigned();
-            $table->foreign('boat_id')->references('id')->on('boats');
             $table->timestamps();
         });
 

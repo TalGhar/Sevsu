@@ -141,7 +141,7 @@ export default function NewsDashboard({ }: Props) {
       </div>
 
       {news.length ? (
-        <form onSubmit={handleSubmit} className='w-1/5 flex flex-col p-6 shadow-md'>
+        <form onSubmit={handleSubmit} className='m-12 bg-white rounded-lg w-1/5 flex flex-col p-6 shadow-md'>
           <input type="file" className="m-5 shadow-sm p-2" accept='image/*' name="news_image" onChange={(e) => { setImage(e.target.files[0]) }} />
           <input type='text' name="news_title" className='text-xl font-bold mb-2 shadow-md p-3' placeholder='Введите заголовок новости' onChange={(e) => { setTitle(e.target.value) }} />
           <textarea className="text-gray-700 p-12 m-2 leading-relaxed" name="news_text" placeholder='Введите текст новости' onChange={(e) => { setText(e.target.value) }} />

@@ -110,11 +110,11 @@ export default function AwardsDashboard({ }: Props) {
 
   return (
     <>
-      <div className='m-4 flex-wrap flex justify-center'>
+      <div className='m-4 flex-wrap flex justify-center '>
         {awards.length ?
           (awards.map((award) => (
 
-            <div key={award.id} className='w-1/5 flex m-5 flex-col bg-white rounded-lg shadow p-6'>
+            <div key={award.id} className='w-1/5 bg-white flex m-5 flex-col rounded-lg shadow p-6'>
               <img src={'/award_images/' + award.award_image} alt={award.award_title} className='cursor-pointer w-full h-full' onClick={() => handleImageClick(award)} />
 
               <input type='text' className='text-xl font-bold mb-2' value={award.award_title} onChange={(event) => handleTitleChange(award.id, event)} />
@@ -144,7 +144,7 @@ export default function AwardsDashboard({ }: Props) {
       </div>
 
       {awards.length ? (
-        <form onSubmit={handleSubmit} className='w-1/5 flex flex-col p-6 shadow-md'>
+        <form onSubmit={handleSubmit} className='m-12 bg-white rounded-lg w-1/5 flex flex-col p-6 shadow-md'>
           <input type="file" className="m-5 shadow-sm p-2" accept='image/*' name="award_image" id="image" onChange={(e) => { setImage(e.target.files[0]) }} />
           <input type='text' name="award_title" className='text-xl font-bold mb-2 shadow-md p-3' placeholder='Введите заголовок награды' onChange={(e) => { setTitle(e.target.value) }} />
           <textarea className="text-gray-700 p-12 m-2 leading-relaxed" name="award_text" placeholder='Введите текст награды' onChange={(e) => { setText(e.target.value) }} />

@@ -1,6 +1,6 @@
-import { Carousel } from 'flowbite-react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Carousel from "nuka-carousel"
 
 type Props = {}
 
@@ -12,7 +12,6 @@ export default function Sales({ }: Props) {
   useEffect(() => {
     axios.get('/api/boats-receive').then((response) => {
       setBoats(response.data);
-      console.log($client);
     })
   }, [])
 
@@ -24,7 +23,6 @@ export default function Sales({ }: Props) {
       .then(response => {
         axios.get('/api/boats-receive').then((response) => {
           setBoats(response.data);
-          console.log($client);
         })
       })
   }
@@ -34,23 +32,31 @@ export default function Sales({ }: Props) {
     const currentDate = new Date();
     const expireDate = new Date();
     expireDate.setDate(currentDate.getDate() + 7);
-    console.log(currentDate)
-    boat.status='rented';
-    boat.rented_from=currentDate.toISOString().slice(0, 19).replace('T', ' ');
-    boat.rented_to=expireDate.toISOString().slice(0, 19).replace('T', ' ');
+    boat.status = 'rented';
+    boat.rented_from = currentDate.toISOString().slice(0, 19).replace('T', ' ');
+    boat.rented_to = expireDate.toISOString().slice(0, 19).replace('T', ' ');
     axios.post('/api/boats-rent', boat);
     alert('Вы успешно арендовали ' + boat.name + ' на неделю.')
   }
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((currentImage + 1) % 3);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [currentImage]);
 
   return (
     <>
       <div className='flex flex-row flex-wrap'>
         {boats.map((boat) => (
-          <div key={boat.id} className='w-1/4 shadow-lg bg-gradient-to-b from-slate-200 to-emerald-200 m-5 rounded'>
-            <div className='w-full h-64 '>
-              <Carousel >
+          <div key={boat.id} className='w-1/4 h-full shadow-lg bg-gradient-to-b from-slate-200 to-emerald-200 m-5 rounded'>
+            <div className='w-auto h-auto'>
+              <Carousel className=''>
                 {boat.images.map((image) => (
-                  <img key={image.id} src={'boat_images/' + image.filename} alt={image} className=" h-full w-full object-cover p-10" />
+                  <img key={image.id} src={'boat_images/' + image.filename} alt={image} className="w-full h-full" />
                 ))}
               </Carousel>
             </div>
@@ -71,6 +77,9 @@ export default function Sales({ }: Props) {
           </div>
         ))}
       </div>
+
+
+
 
     </>
   )
