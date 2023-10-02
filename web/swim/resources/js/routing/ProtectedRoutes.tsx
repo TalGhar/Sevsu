@@ -12,8 +12,8 @@ function ProtectedRoutes() {
         </>
     ) : (
         <>
-            <Navigate to={'/register'} />
-            <Outlet />
+            <GuestLayout />
+            <Navigate to={'/home'} />
         </>
     )
 }

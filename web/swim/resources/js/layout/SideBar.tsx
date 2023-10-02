@@ -11,6 +11,8 @@ type Props = {
 
 export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }: Props) {
 
+    const isLogged = localStorage.getItem('authToken');
+
     const logOut = () => {
         localStorage.removeItem('authToken');
         localStorage.removeItem('userId');
@@ -41,28 +43,39 @@ export default function SideBar({ open, setOpen, dropDownOpen, setDropDownOpen }
 
                             <nav className="pt-2 pb-4 space-y-1 text-sm">
 
-                                <Link to="/home" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Главная</Link>
-                                <Link to="/news" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Новости</Link>
 
-                                <div onMouseEnter={() => { setDropDownOpen(true); }}
-                                    onMouseLeave={() => { setDropDownOpen(false); }}>
 
-                                    <Link to="/about" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">О компании</Link>
+                                {isLogged ? (
+                                    <div>
+                                        <Link to="/home" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Главная</Link>
+                                        <Link to="/news" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Новости</Link>
 
-                                    <div className={`transition-all overflow-hidden duration-500 ease-in-out ${dropDownOpen ? "" : "hidden"} `}>
-                                        <div className="flex flex-col m-2">
-                                            <Link to="/about/#history" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">История</Link>
-                                            <Link to="/about/#services" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Услуги</Link>
-                                            <Link to="/about/#awards" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Награды</Link>
+                                        <div onMouseEnter={() => { setDropDownOpen(true); }}
+                                            onMouseLeave={() => { setDropDownOpen(false); }}>
+
+                                            <Link to="/about" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">О компании</Link>
+
+                                            <div className={`transition-all overflow-hidden duration-500 ease-in-out ${dropDownOpen ? "" : "hidden"} `}>
+                                                <div className="flex flex-col m-2">
+                                                    <Link to="/about/#history" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">История</Link>
+                                                    <Link to="/about/#services" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Услуги</Link>
+                                                    <Link to="/about/#awards" className="items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-md space-x-3 rounded-md">Награды</Link>
+                                                </div>
+                                            </div>
+
                                         </div>
+
+                                        <Link to="/sales" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Продажа катеров/яхт</Link>
+                                        <Link to="/place" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Выставить свой транспорт</Link>
+                                        <button className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md" onClick={logOut}>Выйти из аккаунта</button>
+
                                     </div>
 
-                                </div>
-
-                                <Link to="/sales" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Продажа катеров/яхт</Link>
-                                <Link to="/place" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Выставить свой транспорт</Link>
-
-                                <button className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md" onClick={logOut}>Выйти из аккаунта</button>
+                                ) : (
+                                    <div>
+                                        <Link to="/home" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Главная</Link>
+                                        <Link to="/register" className="flex items-center p-2 duration-150 hover:shadow-md hover:bg-slate-100 text-lg space-x-3 rounded-md">Войти в аккаунт</Link>
+                                    </div>)}
 
                             </nav>
 

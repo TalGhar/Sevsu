@@ -64,7 +64,7 @@ export default function Sales({ }: Props) {
             <div className="p-4">
               <h2 className="text-2xl mb-3 shadow-sm p-2">{boat.name}</h2>
               <p className="text-base mb-3 p-6 text-slate-800 shadow-sm bg-gradient-to-br from-slate-100 to-emerald-300 ">{boat.description}</p>
-              <p className="text-lg font-bold">{boat.price}</p>
+              <p className="text-lg font-bold">{boat.price}€</p>
               <div className="text-lg font-bold">
                 {boat.status === 'created' || boat.status === 'sold' ? <div>Текущий владелец: {boat.owner_id.toString() === $client ? ' Вы' : boat.owner.name + ' ' + boat.owner.patron}</div> : <div>Арендовано до {boat.rented_to}</div>}
               </div>
