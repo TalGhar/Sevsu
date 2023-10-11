@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 
+#include "QTableWidget"
+#include "QPushButton"
+#include "QTextEdit"
+#include "QDateEdit"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -17,11 +22,13 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QPushButton *postNews;
+    QTableWidget *table;
+    QTextEdit *newsText;
+    QLineEdit *newsTitle;
+    QDateEdit *newsDate;
 
 private slots:
-    void changeTitle();
-    void replaceALetters();
-    void countStars();
-    void setDisabled();
+    void onPushClick();
 };
 #endif // MAINWINDOW_H
