@@ -161,3 +161,4 @@ void send(int **matrix1, int **matrix2, int n, int cor, int i, int j, int comm)
         buffer[2 + n + l] = matrix2[l][j];
     MPI_Send(buffer, 2 * n + 2, MPI_INT, comm, 1, MPI_COMM_WORLD);
 }
+
