@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/4th">
+<file alias="main.qml">/home/talghar/Projects/Sevsu/7sem/CrossPlatform/lab4/4th/main.qml</file>
+</qresource>
+</RCC>
