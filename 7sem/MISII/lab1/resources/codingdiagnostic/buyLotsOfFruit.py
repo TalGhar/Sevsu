@@ -35,7 +35,13 @@ def buyLotsOfFruit(orderList):
     Возвращает стоимость заказа
     """
     totalCost = 0.0
+    
     "***  ВСТАВЬТЕ ВАШ КОД СЮДА ***"
+    for fruit, pound in orderList:
+        if fruit in fruitPrices:
+            totalCost += fruitPrices[fruit] * pound
+        else:
+            print("Error: Missing data about %s"%fruit)
           
     return totalCost
 

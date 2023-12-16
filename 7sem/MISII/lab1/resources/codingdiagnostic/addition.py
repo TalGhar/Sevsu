@@ -19,6 +19,5 @@ Run python autograder.py
 
 def add(a, b):
     "Возвращает сумму a и b"
-    "*** ВСТАВЬТЕ ВАШ КОД СЮДА ***"
-    
-    return 0
+    print("a = %s, b = %s => a + b = %s"%( a, b, (a+b)))
+    return a+b

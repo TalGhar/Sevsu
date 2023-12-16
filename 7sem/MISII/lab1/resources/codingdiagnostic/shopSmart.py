@@ -30,9 +30,15 @@ def shopSmart(orderList, fruitShops):
         orderList: Список-заказ из кортежей (fruit, numPound) 
         fruitShops: Список магазинов типа shop
     """
-    "*** ВСТАВЬТЕ ВАШ КОД СЮДА ***"
-                    
-    return None
+    minimum = float("inf")
+    cheapest = None
+    for shop in fruitShops:
+        price = shop.getPriceOfOrder(orderList)
+        if (price < minimum): 
+            minimum = price
+            cheapest = shop
+    print("The cheapest store: %s with price of order: %s"%(shop, minimum))              
+    return cheapest
 
 
 if __name__ == '__main__':
