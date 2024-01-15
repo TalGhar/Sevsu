@@ -1,0 +1,67 @@
+<mxfile host="Electron" modified="2024-01-15T00:23:20.080Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="M8C78nwV8AKN8vNEkSZz" version="22.1.16" type="device">
+  <diagram name="Страница — 1" id="HTJonY4XezWlmLunLNkY">
+    <mxGraphModel dx="-220" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-1" value="Предоставление возможности проведения анонимных&lt;br/&gt;транзакций" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1980" y="240" width="219" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-2" value="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1980" y="360" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="2090" y="360" width="109" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="MQK4S86Ve-ABEv1nxVUo-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1720" y="300" as="sourcePoint" />
+            <mxPoint x="2200" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-5" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="MQK4S86Ve-ABEv1nxVUo-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2199" y="299.5" as="sourcePoint" />
+            <mxPoint x="2459" y="299.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-9" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1780" y="460" width="189" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-6" value="Создание пользовательских атрибутов и ключей" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-9">
+          <mxGeometry width="189" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-7" value="3" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-9">
+          <mxGeometry y="88" width="94.93150684931507" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-9">
+          <mxGeometry x="94.93150684931507" y="88" width="94.06849315068493" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-12" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1780" y="630" width="189" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-13" value="Подтверждение атрибутов" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-12">
+          <mxGeometry width="189" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-14" value="4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-12">
+          <mxGeometry y="88" width="94.93150684931507" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-15" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-12">
+          <mxGeometry x="94.93150684931507" y="88" width="94.06849315068493" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-16" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="2140" y="550" width="189" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-17" value="Создание пользовательских атрибутов и ключей" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-16">
+          <mxGeometry width="189" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-18" value="2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-16">
+          <mxGeometry y="88" width="94.93150684931507" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="MQK4S86Ve-ABEv1nxVUo-19" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="MQK4S86Ve-ABEv1nxVUo-16">
+          <mxGeometry x="94.93150684931507" y="88" width="94.06849315068493" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
