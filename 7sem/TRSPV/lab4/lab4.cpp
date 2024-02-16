@@ -70,7 +70,7 @@ int main(int argc, char **argv)
                 }
                 else
                 {
-                    messages_queue[0].push_back(message);
+                    messages_queue[message[0]].push_back(message);
                 }
             }
 
@@ -78,11 +78,11 @@ int main(int argc, char **argv)
             {
                 if (allocated_resources[message[0]] == true)
                 {
-                    if (messages_queue[0].empty() == false)
+                    if (messages_queue[message[0]].empty() == false)
                     {
                         allocated_resources[message[0]] = false;
-                        vector<int> nextMessage = messages_queue[0].front();
-                        messages_queue[0].clear();
+                        vector<int> nextMessage = messages_queue[message[0]].front();
+                        messages_queue[message[0]].pop_front();
                         MPI_Send(nextMessage.data(), MESSAGE_SIZE, MPI_INT, SERVER, 0, MPI_COMM_WORLD);
                     }
                     allocated_resources[message[0]] = false;
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
             if (message[1] == MESSAGE_DONE)
             {
                 clients_that_done_working++;
-                if (clients_that_done_working == 2)
+                if (clients_that_done_working == 6)
                     break;
             }
         }
@@ -102,14 +102,22 @@ int main(int argc, char **argv)
         // CLIENTS
     case 1:
     case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
     {
-        srand(time(0) * rank);
+        srand(time(0));
         vector<int> message(MESSAGE_SIZE);
 
-        int id_resource = rand() % 3;
-        sleep(2);
+        int id_resource = 0;
         // CLIENT ALLOCATES RESOURCE AND SEND THE MESSAGE TO SERVER
-        message = {id_resource, MESSAGE_ALLOCATE_RESOURCE, rank};
+        if (rank <= 3)
+        {
+            message = {0, MESSAGE_ALLOCATE_RESOURCE, rank};
+        }
+        else
+            message = {1, MESSAGE_ALLOCATE_RESOURCE, rank};
         MPI_Send(message.data(), MESSAGE_SIZE, MPI_INT, SERVER, 0, MPI_COMM_WORLD);
         cout << "Client #" << rank << " sent the message: {" << message[0] << ',' << message[1] << ',' << message[2] << "}\n";
 
@@ -128,7 +136,6 @@ int main(int argc, char **argv)
         MPI_Send(message.data(), MESSAGE_SIZE, MPI_INT, SERVER, 0, MPI_COMM_WORLD);
         cout << "Client #" << rank << " finished working with resources\n";
     }
-
     break;
 
     default:
