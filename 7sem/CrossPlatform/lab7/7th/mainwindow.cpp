@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->getButton,SIGNAL(clicked()),this,SLOT(activateGetWidgets()));
     connect(ui->submitButton,SIGNAL(clicked()),this,SLOT(DoHttpGet()));
     connect(ui->resetButton,SIGNAL(clicked()),this,SLOT(clearWidgets()));
-    connect(nam,SIGNAL(finished(QNetworkReply*)),this,SLOT(finished(QNetworkReply*)));
+    //connect(nam,SIGNAL(finished(QNetworkReply*)),this,SLOT(finished(QNetworkReply*)));
     connect(ui->postButton,SIGNAL(clicked()),this,SLOT(activatePostWidgets()));
 }
 
@@ -73,7 +73,9 @@ void MainWindow::DoHttpGet()
     postData.append(data.toLatin1());
     if(postData.isEmpty() == true)
     {
-        nam->get(QNetworkRequest(QUrl(url)));
+        QNetworkReply *reply = nam->get(QNetworkRequest(QUrl(url)));
+        ui->textBrowser->setText(reply->readAll());
+
     }
     else
     {

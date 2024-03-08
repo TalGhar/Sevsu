@@ -1,4 +1,4 @@
-#include <QGuiApplication>
+r#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "filesavereader.h"
