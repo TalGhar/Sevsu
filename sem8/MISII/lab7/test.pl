@@ -2,9 +2,9 @@
 
 student("Иванов И. В", "ИС/Б-20-1-о", 3, 4, 5, 4, 4).
 student("Иванов И. В", "ИС/Б-20-2-о", 4, 3, 5, 3, 4).
-student("Петров И. В", "ИС/Б-20-2-о", 5, 2, 3, 3, 4).
-student("Сидоров И. В", "ИС/Б-20-3-о", 2, 4, 5, 4, 4).
-student("Васечкин И. В", "ИС/Б-20-2-о", 5, 4, 5, 4, 3).
+student("Петров И. В", "ИС/Б-20-2-о", 5, 3, 3, 3, 4).
+student("Сидоров И. В", "ИС/Б-20-3-о", 3, 4, 5, 4, 4).
+student("Васечкин И. В", "ИС/Б-20-2-о", 3, 4, 5, 4, 3).
 
 % ~ RULES TO CONTROL USER INPUT THROUGH MENU
 
@@ -46,7 +46,7 @@ main_menu_item(6):-
     main_menu,!.
 
 main_menu_item(7):-
-
+    edit_student,
     main_menu,!.
 
 main_menu_item(8):-
@@ -129,15 +129,30 @@ show_dummies:-
     member(2,[P1,P2,P3,P4,P5]),
     write('Фамилия И.О.         Номер группы         Р1         Р2         Р3         Р4         Р5'),nl,
     write(FIO),tab(10),write(Group),tab(10),write(P1),tab(10),write(P2),tab(10),write(P3),tab(10),write(P4),tab(10),write(P5),nl,
-    write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'),nl,get(temp).
+    write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'),nl,get(temp),fail,!;
+    write('Больше нет студентов с оценками 2'),get(temp).
 
-% ~ RULE TO CHANGE STUDENT BY HIS GROUP NUMBER
+% ~ RULE TO EDIT STUDENT BY HIS GROUP NUMBER
 
 edit_student:-
     tty_clear,
-    
-    ,.
-
+    write('Введите номер группы студента для изменения (изменяться будет первый встреченный студент выбранной группы)'),nl,read(EditGroup),
+    retract(student(_,EditGroup,_,_,_,_,_)),
+    write('Введите Фамилия И.О.'),
+    read(FIO),
+    write('Введите номер группы'),
+    read(Group),
+    write('Введите успеваемость по предмету P1'),
+    read(P1),
+    write('Введите успеваемость по предмету P2'),
+    read(P2),
+    write('Введите успеваемость по предмету P3'),
+    read(P3),
+    write('Введите успеваемость по предмету P4'),
+    read(P4),
+    write('Введите успеваемость по предмету P5'),
+    read(P5),
+    assert(student(FIO, Group, P1, P2, P3, P4, P5)).
 
 % ~ RELATIONAL ALGEBRA RULES
 
