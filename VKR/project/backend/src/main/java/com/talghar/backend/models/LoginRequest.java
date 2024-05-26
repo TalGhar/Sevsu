@@ -11,22 +11,22 @@ package com.talghar.backend.models;
 public class LoginRequest {
 
     private String username;
-    private String userSecret;
+    private String password;
 
     public String getUsername() {
         return username;
     }
 
-    public String getUserSecret() {
-        return userSecret;
+    public String getPassword() {
+        return password;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setUserSecret(String userSecret) {
-        this.userSecret = userSecret;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

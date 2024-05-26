@@ -26,7 +26,6 @@ import org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.hyperledger.fabric.gateway.X509Identity;
 
 /**
  *

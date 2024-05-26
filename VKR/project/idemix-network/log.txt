@@ -1,0 +1,2 @@
+[34m2024-05-27 01:04:43.137 MSK 0001 INFO[0m [channelCmd] [34;1mInitCmdFactory[0m -> Endorser and orderer connections initialized
+[34m2024-05-27 01:04:43.184 MSK 0002 INFO[0m [channelCmd] [34;1mexecuteJoin[0m -> Successfully submitted proposal to join channel

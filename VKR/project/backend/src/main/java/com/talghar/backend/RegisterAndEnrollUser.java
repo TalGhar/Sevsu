@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.talghar.backend;
 
 import java.io.File;
@@ -48,7 +44,7 @@ public class RegisterAndEnrollUser {
     @RequestMapping(value = "/registerUser")
     public static void main(String[] args) throws Exception {
 
-        String enrollmentId = "testUser11";
+        String enrollmentId = "testUser12";
         String caCertPEM = new File(System.getProperty("user.dir")).getParentFile() + "/idemix-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem";
 
         Properties props = new Properties();
@@ -146,7 +142,7 @@ public class RegisterAndEnrollUser {
 
         System.out.println("Successfully enrolled user " + enrollmentId + " and imported it into the wallet");
 
-        
+
     }
 
 }
