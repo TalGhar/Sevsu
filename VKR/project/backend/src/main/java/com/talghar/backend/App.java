@@ -42,7 +42,7 @@ public class App {
         System.out.println("Application is running!");
 
         String caCertPEM = new File(System.getProperty("user.dir")).getParentFile() + "/idemix-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem";
-        
+
         // Create a CA client for interacting with the CA.
         Properties props = new Properties();
         props.put("pemFile", caCertPEM);
@@ -50,17 +50,19 @@ public class App {
         HFCAClient caClient = HFCAClient.createNewInstance("https://localhost:7054", props);
         CryptoSuite cryptoSuite = CryptoSuiteFactory.getDefault().getCryptoSuite();
         caClient.setCryptoSuite(cryptoSuite);
+        final EnrollmentRequest enrollmentRequestTLS = new EnrollmentRequest();
+        enrollmentRequestTLS.addHost("localhost");
 
         // Create a wallet for managing identities
         Wallet wallet = Wallets.newFileSystemWallet(Paths.get("wallet"));
         if (wallet.get("admin") != null) {
+            System.out.println(caClient.enroll("admin", "adminpw", enrollmentRequestTLS));
+
             System.out.println("An identity for the admin user \"admin\" already exists in the wallet");
             return;
         }
 
         // Enroll the admin user, and import the new identity into the wallet.
-        final EnrollmentRequest enrollmentRequestTLS = new EnrollmentRequest();
-        enrollmentRequestTLS.addHost("localhost");
         Enrollment enrollment = caClient.enroll("admin", "adminpw", enrollmentRequestTLS);
 
         Identity user = (Identity) Identities.newX509Identity("Org1MSP", enrollment);

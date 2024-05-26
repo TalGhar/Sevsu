@@ -3,18 +3,25 @@ import { redirect, useNavigate } from 'react-router-dom';
 
 const AdminAuthForm = () => {
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [secret, setSecret] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (username === 'admin' && password === 'password') {
-            navigate("/admin/");
-        } else {
-            setError('Invalid username or password');
+    const handleSubmit = async () => {
+        const response = await fetch('http://localhost:8080/api/auth/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, secret }),
+        });
+        if (response.ok) {
+            console.log('ok');
         }
-    };
+        else {
+            setError('loh');
+        }
+    }
 
     return (
         <div className="flex justify-center items-center h-screen">
@@ -40,16 +47,16 @@ const AdminAuthForm = () => {
                         />
                     </div>
                     <div className="mb-6">
-                        <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
+                        <label className="block text-gray-700 font-bold mb-2" htmlFor="secret">
                             Password
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password"
+                            id="secret"
                             type="password"
                             placeholder="Enter your password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={secret}
+                            onChange={(e) => setSecret(e.target.value)}
                         />
                     </div>
                     <div className="flex items-center justify-between">
